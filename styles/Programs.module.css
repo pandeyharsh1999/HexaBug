@@ -1,0 +1,11 @@
+.container {
+  background-color: #f8f8f8;
+  min-height: calc(100vh - var(--navbar-height));
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+}
+
+.right {
+  flex: 1;
+}

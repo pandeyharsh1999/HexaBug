@@ -1,9 +1,30 @@
-html,
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --link: #0058c0;
+  --border: 1px solid #e3e4e6;
+  --navbar-height: 60px;
+  --shadow: -2px 2px 10px rgba(0, 0, 0, 0.095);
+  --dark: #2a2a2a;
+  --light: #eeeeee;
+}
+
+* {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  box-sizing: border-box;
+}
+
+html,
+body,
+input,
+textarea,
+label {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow: overlay;
 }
 
 a {
@@ -11,6 +32,242 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+*::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: #474747;
+}
+/* 
+.overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #04040417;
+  z-index: 10;
+} */
+
+.link {
+  color: var(--link);
+}
+
+/* 
+Form Styles 
+------------ 
+*/
+
+.form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 1.5rem;
+  padding-top: 0;
+  max-height: calc(100vh - 100px);
+  overflow: overlay;
+}
+
+.text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.text-group {
+  width: 100%;
+}
+
+.text-group label {
+  font-size: 14px;
+  color: gray;
+}
+
+.text-group input,
+.text-group textarea {
+  width: 100%;
+  border: var(--border);
+  border-radius: 3px;
+  padding: 0.3rem 0.7rem;
+  font-size: 16px;
+  outline: none;
+}
+
+.text-group textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+.text-group input:hover,
+.text-group textarea:hover {
+  border-color: #8a8a8a;
+}
+
+.text-group input:focus,
+.text-group textarea:focus {
+  border-color: #555555;
+}
+
+.text-group input::placeholder,
+.text-group textarea::placeholder {
+  color: #e3e4e6;
+  font-size: 1rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.btn-group {
+  display: flex;
+  width: max-content;
+  gap: 10px;
+  margin-top: 1rem;
+  margin-left: auto;
+}
+
+/* .btn-group button {
+  flex: 1;
+} */
+
+.text-input {
+  outline: none;
+  border: var(--border);
+  border-radius: 3px;
+  padding: 0 0.6rem;
+}
+
+.text-input:hover,
+.text-input:focus {
+  border-color: #727272;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.6rem 1rem;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  font-size: 14px;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  min-width: 100px;
+  font-size: 14px;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1.5px solid transparent;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  border-color: var(--dark);
+  color: var(--dark);
+}
+
+.btn-secondary {
+  padding: 0.4rem 1rem;
+  border: var(--border);
+}
+
+.btn-secondary:hover {
+  background-color: #ebebeb;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  padding-left: 4px;
+}
+
+.checkbox,
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.checkbox input,
+.radio input {
+  --rad: 14px;
+  accent-color: #2a2a2a;
+  width: var(--rad);
+  height: var(--rad);
+}
+
+.error-label {
+  color: var(--red) !important;
+}
+
+.error-message {
+  color: var(--red);
+  position: absolute;
+  top: 100%;
+  font-size: 10px;
+}
+
+.error-outline {
+  border-color: #e64a4a !important;
+  position: relative;
+}
+
+error-outline::after {
+  --radius: 20px;
+  position: absolute;
+  content: "!";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--radius);
+  height: var(--radius);
+  background-color: #e64a4a;
+  color: white;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.recharts-tooltip-cursor {
+  fill: rgba(33, 33, 33, 0.075) !important;
+}
+
+.rdrDateDisplayWrapper {
+  background-color: transparent !important;
+}
+
+.rdrDateDisplayItem {
+  border: none !important;
+  background-color: transparent;
+}
+
+.rdrDateDisplay input {
+  border: 1px solid #979797 !important;
+  background-color: transparent !important;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #979797 !important;
+}
+
+.rdrDateDisplayItemActive input {
+  border-color: #2a2a2a !important;
+  color: #2a2a2a !important;
+}
+
+.rdrStartEdge,
+.rdrInRange,
+.rdrEndEdge {
+  background-color: #2a2a2a !important;
 }
